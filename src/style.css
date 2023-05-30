@@ -1,6 +1,9 @@
 :root {
   --margin-auto: 0 auto;
   --font-lexend: 'Lexend Peta', sans-serif;
+  --font-francois: 'Francois One', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
 }
 
 * {
@@ -30,13 +33,21 @@ ul {
 a {
   text-decoration: none;
 }
+button {
+  cursor: pointer;
+}
 .color-primary {
-  color: #1C3B6A;
+  color: #192C54;
 }
 .bg-primary {
-  background-color: #1C3B6A;
+  background-color: #192C54;
 }
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: var(--margin-auto);
+}
+@media(max-width: 1500px) {
+  .container {
+    max-width: 1300px;
+  }
 }

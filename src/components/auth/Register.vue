@@ -7,24 +7,31 @@
         </div>
         <div class="content__form df justify-center">
           <div class="content__form__content">
-            <h2>Log in</h2>
-            <h4>Please enter your details</h4>
+            <h2>Register</h2>
+            <h4>Let’s get started</h4>
             <form>
+              <input type="text" v-model="form.username" placeholder="Username">
+              <img src="../../assets/images/user.png" alt="username" class="username">
               <input type="text" v-model="form.email" placeholder="Email">
               <img src="../../assets/images/email.png" alt="email" class="email">
-              <input :type="loginStore.password" v-model="form.password" placeholder="Password">
+              <input :type="registerStore.password" v-model="form.password" placeholder="Password">
               <img src="../../assets/images/password.png" alt="password" class="password">
             </form>
-            <div class="content__form__checkbox df align-center justify-between">
+            <div class="content__form__checkbox df align-center">
               <div class="content__form__checkbox__content df align-center">
-                <input type="checkbox" id="checkbox" :checked="loginStore.checked" @click="loginStore.checkbox">
+                <input type="checkbox" id="checkbox" :checked="registerStore.checked" @click="registerStore.checkbox">
                 <span class="checkmark"></span>
-                <label for="checkbox">Remember Me</label>
+                <label for="checkbox">I have read the</label>
               </div>
-              <h4>Reset Password</h4>
+              <h4>Terms and conditions</h4>
             </div>
             <div class="content__form__button">
-              <button class="df align-center justify-center" @click="loginStore.login()" :disabled="!form.email || !form.password">Log In</button>
+              <button class="df align-center justify-center" @click="registerStore.register()" :disabled="!form.username || !form.email || !form.password">Sign Up</button>
+              <router-link class="link" to="/login">
+                <div class="link">
+                  <h4>Already have an account? <span>Login</span></h4>
+                </div>
+              </router-link>
             </div>
           </div>
         </div>
@@ -37,10 +44,10 @@
 </template>
 
 <script setup>
-import {useLogin} from "../../store/useLogin";
+import { useRegister } from "../../store/useRegister";
 
-const loginStore = useLogin();
-const form = loginStore.form;
+const registerStore = useRegister();
+const form = registerStore.form;
 </script>
 
 <style lang="scss" scoped>
@@ -54,7 +61,7 @@ const form = loginStore.form;
     position: relative;
     z-index: 2;
     width: 462px;
-    height: 370px;
+    height: 470px;
     background: #1C3B6A;
     border-radius: 6px;
     transform: translateY(-151px) translateX(20px);
@@ -76,7 +83,7 @@ const form = loginStore.form;
         font-size: 14px;
         color: #FFFFFF;
         font-family: var(--font-inter);
-        margin: 10px 0;
+        margin: 10px 0 15px;
       }
 
       & form {
@@ -104,19 +111,25 @@ const form = loginStore.form;
             font-family: var(--font-inter);
           }
         }
-
-        .email {
+        .username {
           position: absolute;
           left: 0;
           top: 0;
           transform: translateX(15px) translateY(14px);
         }
 
+        .email {
+          position: absolute;
+          left: 0;
+          top: 0;
+          transform: translateX(15px) translateY(77px);
+        }
+
         .password {
           position: absolute;
           left: 0;
           top: 0;
-          transform: translateX(15px) translateY(74px);
+          transform: translateX(15px) translateY(138px);
         }
       }
     }
@@ -198,6 +211,18 @@ const form = loginStore.form;
         &:disabled {
           opacity: .5;
           cursor: auto;
+        }
+      }
+      .link {
+        margin: 20px 0;
+        & h4 {
+          font-family: var(--font-inter);
+          font-weight: 400;
+          font-size: 14px;
+          color: #757575;
+          & span {
+            color: #fff!important;
+          }
         }
       }
     }
