@@ -23,9 +23,7 @@ export const useLogin = defineStore("loginStore",() => {
         const password = cookie.get("password")
         if(form.email === email && form.password === password) {
             router.push({path: "/"})
-            console.log('успешно')
         } else {
-            console.log('не успешно')
             router.push({path: "/login"})
         }
     };

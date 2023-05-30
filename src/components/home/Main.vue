@@ -5,11 +5,11 @@
         <img src="../../assets/images/pubg.png" alt="pubg">
       </div>
       <div class="main-background__btn df align-center">
-        <button class="df align-center justify-center" data-aos="fade-down-right" data-aos-duration="3000">watching</button>
+        <button class="df align-center justify-center" data-aos="fade-down-right" data-aos-duration="2000">watching</button>
         <button class="play">
           <img src="../../assets/images/play.png" alt="play">
         </button>
-        <button class="df align-center justify-center" data-aos="fade-down-left" data-aos-duration="3000">play</button>
+        <button class="df align-center justify-center" data-aos="fade-down-left" data-aos-duration="2000">play</button>
       </div>
     </div>
   </div>
